@@ -105,3 +105,9 @@ key.properties
 # Web
 /web/main.dart.js
 /web/main.dart.js.map
+
+# FVM Version Cache
+.fvm/
+.fvmrc
+
+data/
