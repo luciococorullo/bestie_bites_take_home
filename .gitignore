@@ -110,4 +110,6 @@ key.properties
 # FVM: ignore the local SDK cache/symlinks, but track .fvmrc (the version pin).
 .fvm/
 
-data/
+# Claude skills
+.claude/settings.local.json
+
