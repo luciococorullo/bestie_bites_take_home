@@ -53,14 +53,14 @@ class SearchBody extends ConsumerWidget {
       SearchIdle() => const IdleEmptyView(),
       SearchSearching() => const AppLoadingIndicator(),
       SearchSuggestions(:final cities) => SuggestionsListView(
-          cities: cities,
-          onCitySelected: onCitySelected,
-        ),
+        cities: cities,
+        onCitySelected: onCitySelected,
+      ),
       SearchNoResults() => const _NoResultsView(),
       SearchError(:final failure) => ErrorRetryView(
-          message: failure.message,
-          onRetry: controller.retry,
-        ),
+        message: failure.message,
+        onRetry: controller.retry,
+      ),
     };
   }
 }

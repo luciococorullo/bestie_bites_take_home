@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_spacing.dart';
 import '../../domain/entities/city.dart';
 import 'suggestion_tile.dart';
 
@@ -19,17 +19,12 @@ class SuggestionsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      padding: const EdgeInsets.only(bottom: AppSpacing.xl),
       itemCount: cities.length,
-      separatorBuilder: (_, _) => const Divider(
-        height: 1,
-        color: AppColors.border,
-      ),
+      separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.md),
       itemBuilder: (context, index) {
         final city = cities[index];
-        return SuggestionTile(
-          city: city,
-          onTap: () => onCitySelected(city),
-        );
+        return SuggestionTile(city: city, onTap: () => onCitySelected(city));
       },
     );
   }

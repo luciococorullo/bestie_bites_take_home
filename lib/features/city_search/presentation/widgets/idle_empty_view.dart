@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
-/// Stato **idle**: illustrazione muted al centro + testo helper.
+/// Stato **idle**: silhouette muted dell'Italia al centro + testo helper.
 ///
-/// Il mockup mostra una silhouette dell'Italia. Per non introdurre una
-/// dipendenza (SVG) né un asset binario, usiamo qui il fallback previsto dal
-/// piano — una grande icona muted coerente col palette. Per la silhouette vera
-/// basta sostituire l'[Icon] con `Image.asset('assets/images/italy_silhouette.png')`
-/// dichiarando l'asset in `pubspec.yaml`.
+/// La sagoma è un asset SVG (`assets/images/italy.svg`) tinta in grigio chiaro,
+/// per riprodurre il mockup senza dipendere dalla risoluzione di un PNG.
 class IdleEmptyView extends StatelessWidget {
   const IdleEmptyView({super.key});
 
@@ -22,10 +20,13 @@ class IdleEmptyView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(
-              Icons.public_rounded,
-              size: 120,
-              color: AppColors.lightGray,
+            SvgPicture.asset(
+              'assets/images/italy.svg',
+              height: 180,
+              colorFilter: const ColorFilter.mode(
+                AppColors.lightGray,
+                BlendMode.srcIn,
+              ),
             ),
             const SizedBox(height: AppSpacing.xl),
             Text(

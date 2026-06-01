@@ -32,8 +32,7 @@ final class TimeoutFailure extends Failure {
   const TimeoutFailure();
 
   @override
-  String get message =>
-      'La richiesta ha impiegato troppo tempo. Riprova.';
+  String get message => 'La richiesta ha impiegato troppo tempo. Riprova.';
 }
 
 /// Il server ha risposto con uno stato non riuscito (`badResponse`).
@@ -61,8 +60,7 @@ final class ParseFailure extends Failure {
   const ParseFailure();
 
   @override
-  String get message =>
-      'Risposta del server non valida. Riprova.';
+  String get message => 'Risposta del server non valida. Riprova.';
 }
 
 /// Qualunque altro errore non riconducibile alle varianti sopra.

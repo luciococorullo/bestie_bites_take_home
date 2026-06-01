@@ -19,9 +19,7 @@ class CuisinesGridView extends StatelessWidget {
       childAspectRatio: 0.8,
       padding: const EdgeInsets.only(bottom: AppSpacing.xl),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-      children: [
-        for (final cuisine in cuisines) CuisineCard(cuisine: cuisine),
-      ],
+      children: [for (final cuisine in cuisines) CuisineCard(cuisine: cuisine)],
     );
   }
 }

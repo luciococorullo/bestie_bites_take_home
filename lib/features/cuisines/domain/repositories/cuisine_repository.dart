@@ -6,8 +6,5 @@ import '../entities/cuisine.dart';
 /// `core/error/`): chi consuma il repository ragiona solo su [Cuisine] e su
 /// `Failure`, mai su dettagli di dio/HTTP.
 abstract interface class CuisineRepository {
-  Future<List<Cuisine>> getCuisines({
-    required double lat,
-    required double lng,
-  });
+  Future<List<Cuisine>> getCuisines({required double lat, required double lng});
 }

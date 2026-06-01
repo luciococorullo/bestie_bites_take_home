@@ -27,9 +27,7 @@ class CuisineRepositoryImpl implements CuisineRepository {
   }) async {
     try {
       final response = await _remote.getCuisines(lat: lat, lng: lng);
-      return response.data
-          .map((dto) => dto.toEntity())
-          .toList(growable: false);
+      return response.data.map((dto) => dto.toEntity()).toList(growable: false);
     } on DioException catch (exception) {
       throw mapDioException(exception);
     } on FormatException {

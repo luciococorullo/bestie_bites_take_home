@@ -35,10 +35,7 @@ class CuisinesHeader extends StatelessWidget {
             padding: EdgeInsets.zero,
             visualDensity: VisualDensity.compact,
             tooltip: 'Indietro',
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: AppColors.accent,
-            ),
+            icon: const Icon(Icons.arrow_back_rounded, color: AppColors.accent),
           ),
         ),
         const SizedBox(height: AppSpacing.sm),

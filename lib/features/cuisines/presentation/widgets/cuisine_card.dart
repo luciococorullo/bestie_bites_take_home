@@ -33,14 +33,17 @@ class CuisineCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _CuisineEmoji(url: cuisine.imageEmojiUrl),
-          const SizedBox(height: AppSpacing.sm),
-          Text(
-            cuisine.name,
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.smallLabel.copyWith(
-              color: AppColors.foreground,
+          const SizedBox(height: AppSpacing.md),
+          Flexible(
+            child: Text(
+              cuisine.name,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.smallLabel.copyWith(
+                color: AppColors.foreground,
+                height: 1.2,
+              ),
             ),
           ),
         ],
@@ -55,7 +58,7 @@ class _CuisineEmoji extends StatelessWidget {
 
   final String url;
 
-  static const double _size = 44;
+  static const double _size = 54;
 
   @override
   Widget build(BuildContext context) {

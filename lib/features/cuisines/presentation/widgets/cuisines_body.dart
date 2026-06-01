@@ -32,10 +32,7 @@ class CuisinesBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final provider = cuisinesProvider(
-      lat: city.latitude,
-      lng: city.longitude,
-    );
+    final provider = cuisinesProvider(lat: city.latitude, lng: city.longitude);
     final cuisinesAsync = ref.watch(provider);
 
     return SafeArea(
@@ -55,15 +52,16 @@ class CuisinesBody extends ConsumerWidget {
             const SizedBox(height: AppSpacing.lg),
             Expanded(
               child: switch (cuisinesAsync) {
-                AsyncData(:final value) => value.isEmpty
-                    ? const _EmptyCuisinesView()
-                    : CuisinesGridView(cuisines: value),
+                AsyncData(:final value) =>
+                  value.isEmpty
+                      ? const _EmptyCuisinesView()
+                      : CuisinesGridView(cuisines: value),
                 AsyncError(:final error) => ErrorRetryView(
-                    message: error is Failure
-                        ? error.message
-                        : 'Impossibile caricare le cucine. Riprova.',
-                    onRetry: () => ref.invalidate(provider),
-                  ),
+                  message: error is Failure
+                      ? error.message
+                      : 'Impossibile caricare le cucine. Riprova.',
+                  onRetry: () => ref.invalidate(provider),
+                ),
                 _ => const AppLoadingIndicator(message: 'Carico le cucine…'),
               },
             ),

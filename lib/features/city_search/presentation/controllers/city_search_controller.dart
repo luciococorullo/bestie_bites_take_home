@@ -79,10 +79,9 @@ class CitySearchController extends _$CitySearchController {
     _cancelToken = cancelToken;
 
     try {
-      final cities = await ref.read(cityRepositoryProvider).searchCities(
-            term: term,
-            cancelToken: cancelToken,
-          );
+      final cities = await ref
+          .read(cityRepositoryProvider)
+          .searchCities(term: term, cancelToken: cancelToken);
       // Nel frattempo è partita una ricerca più recente: scarta il risultato.
       if (cancelToken != _cancelToken) return;
       state = cities.isEmpty
