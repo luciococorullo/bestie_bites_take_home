@@ -2,51 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Cucine · Web (Chrome) debug",
+      "name": "Cucine in città",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "deviceId": "chrome",
       "flutterMode": "debug"
     },
     {
-      "name": "Cucine · Web (Chrome) release",
+      "name": "Cucine in città (profile)",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "deviceId": "chrome",
-      "flutterMode": "release"
-    },
-    {
-      "name": "Cucine · iOS debug",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "deviceId": "ios",
-      "flutterMode": "debug"
-    },
-    {
-      "name": "Cucine · iOS profile",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "deviceId": "ios",
-      "flutterMode": "profile"
-    },
-    {
-      "name": "Cucine · Android debug",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "deviceId": "android",
-      "flutterMode": "debug"
-    },
-    {
-      "name": "Cucine · Android profile",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "deviceId": "android",
       "flutterMode": "profile"
     }
   ]
