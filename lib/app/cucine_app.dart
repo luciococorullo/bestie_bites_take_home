@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../core/theme/app_colors.dart';
-import '../core/theme/app_spacing.dart';
-import '../core/theme/app_text_styles.dart';
 import '../core/theme/app_theme.dart';
+import '../features/city_search/presentation/widgets/search_body.dart';
 
 /// Root dell'app: MaterialApp con il tema scuro del brand.
 ///
-/// Per ora mostra un placeholder; la `HomeScreen` con la navigazione-as-stato
-/// (ricerca città → cucine) verrà introdotta in una fase successiva.
+/// Per ora la home è la sola modalità ricerca. La navigazione-as-stato completa
+/// (ricerca città → cucine) verrà introdotta nello step 10 con `HomeScreen`.
 class CucineApp extends StatelessWidget {
   const CucineApp({super.key});
 
@@ -18,33 +17,27 @@ class CucineApp extends StatelessWidget {
       title: 'Cucine in città',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark,
-      home: const _HomePlaceholder(),
+      home: const _SearchHome(),
     );
   }
 }
 
-class _HomePlaceholder extends StatelessWidget {
-  const _HomePlaceholder();
+class _SearchHome extends StatelessWidget {
+  const _SearchHome();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.xl),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Cucine in città', style: AppTextStyles.title),
-              SizedBox(height: AppSpacing.sm),
-              Text(
-                'Cerca una città per scoprire le cucine disponibili.',
-                style: AppTextStyles.subtitle,
-              ),
-            ],
-          ),
-        ),
+      body: SearchBody(
+        // Segnaposto temporaneo: nello step 10 il tap navigherà alle cucine.
+        onCitySelected: (city) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(content: Text('Città selezionata: ${city.mainText}')),
+            );
+        },
       ),
     );
   }
