@@ -18,8 +18,9 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# VS Code
-.vscode/
+# VS Code — ignore the folder's contents but keep shared launch/SDK configs.
+.vscode/*
+!.vscode/launch.json
 
 # Flutter / Dart / Pub
 **/doc/api/
@@ -105,3 +106,10 @@ key.properties
 # Web
 /web/main.dart.js
 /web/main.dart.js.map
+
+# FVM: ignore the local SDK cache/symlinks, but track .fvmrc (the version pin).
+.fvm/
+
+# Claude skills
+.claude/settings.local.json
+
